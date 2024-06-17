@@ -1,0 +1,149 @@
+Transaction_1 : Started
+Transaction_2 : Started
+Transaction_1 : Hop_1 - Started. 
+ Node_1 at the start of Transaction_1 : ['T1'] 
+ Node_2 at the start of Transaction_1 : [] 
+ Node_3 at the start of Transaction_1 : []
+Transaction_3 : Started
+Transaction_4 : Started
+Transaction_2 : Hop_1 - Started 
+ Node_1 at the start of Transaction_2 : ['T1'] 
+ Node_2 at the start of Transaction_2 : ['T2'] 
+ Node_3 at the start of Transaction_2 : ['T2']
+Transaction_5 : Started
+Transaction_6 : Started
+Transaction_7 : Waiting!
+Transaction_5 : Hop_1 - Started  
+ Node_1 at the start of Transaction_5 : ['T1', 'T5']  
+ Node_2 at the start of Transaction_5 : ['T2', 'T4']  
+ Node_3 at the start of Transaction_5 : ['T2', 'T4']
+Transaction_4 : Hop_1 - Started 
+ Node_1 at the start of Transaction_4 : ['T1'] 
+ Node_2 at the start of Transaction_4 : ['T2', 'T4'] 
+ Node_3 at the start of Transaction_4 : ['T2', 'T4']
+Transaction_3 : Hop_1 - Started 
+ Node_1 at the start of Transaction_3 : ['T1', 'T5'] 
+ Node_2 at the start of Transaction_3 : ['T2', 'T4', 'T6', 'T3'] 
+ Node_3 at the start of Transaction_3 : ['T2', 'T4', 'T3']
+Transaction_6 : Hop_1 - Started
+ Node_1 at the start of Transaction_6: ['T1', 'T5']
+ Node_2 at the start of Transaction_6: ['T2', 'T4', 'T6']
+ Node_3 at the start of Transaction_6: ['T2', 'T4']
+Transaction_4 : Hop_1 is waiting for T2 to complete on node_3!
+Transaction_6 is waiting for T2 to complete on node_2!
+Transaction_2 : Product already exists.
+Transaction_2 : Hop_1 - Successful - No need of further hops.
+Transaction_3 : Hop_1 is waiting for T2 to complete on node_2!
+Transaction_2 : Ended
+ Node_1 at the end of transaction_2 : ['T1', 'T5']
+ Node_2 at the end of transaction_2 : ['T4', 'T6', 'T3']
+ Node_3 at the end of transaction_2 : ['T4', 'T3']
+ Transaction_2 : Total Time -  0.07 seconds
+Transaction_1 : Hop_1 - Successful.
+Transaction_1 : Ended
+  Node_1 at the end of Transaction_1 : ['T5']
+ Node_2 at the start of Transaction_1 : ['T4', 'T6', 'T3']
+ Node_3 at the start of Transaction_1 : ['T4', 'T3']
+ Transaction_1 : Total Time - 0.1 seconds
+Transaction_5 : Hop_1 - Successful
+Transaction_5 : The previous email was martin@uci.edu and the new email is tanuja@example.com
+Transaction_5 : Ended
+ Node_1 at the end of Transaction_5 : []
+ Node_2 at the end of Transaction_5 : ['T4', 'T6', 'T3']
+ Node_3 at the end of Transaction_5: ['T4', 'T3']
+ Transaction_5 : Total Time - 0.2 seconds
+Transaction_7 : Waiting!
+Transaction_4 : Order 92 has been placed successfully in hop 1.
+ Transaction_4 : Hop_1 - Successful
+Transaction_4 : Hop_2 - Started
+
+Transaction_4 : Product 1 quantity has been decremented by 17.
+Node_2 : Transaction_4 : ['T6', 'T3']
+
+Transaction_4 : Ended
+ Node_1 at the end of Transaction_4 : []
+ Node_2 at the end of Transaction_4 : ['T6', 'T3']
+ Node_3 at the end of Transaction_4 : ['T3']
+ Transaction_4 : Total Time - 1.03 seconds
+
+Transaction_3 : Hop_1 is waiting for T6 to complete on node_2!
+
+T6 - First hop successful - Price updated
+
+The previous price was 1500.0 and the new price is 1220
+
+Transaction_6 : Ended
+ Node_1 at the end of Transaction_6: []
+ Node_2 at the end of Transaction_6: ['T3']
+ Node_3 at the end of Transaction_6: ['T3']
+ Transaction_6 : Total Time - 1.14 seconds
+
+Transaction_7 : Waiting!
+
+Transaction_3 : The previous value is 5 and the current value is 50
+
+Transaction_3 : Hop_1 - Successful
+Transaction_3 : Hop_2 - Started
+
+Transaction_3 : Hop_2 - Successful
+
+Transaction_3 : Ended
+ Node_1 at the end of Transaction_3 : []
+ Node_2 at the end of Transaction_3 : []
+ Node_3 at the end of Transaction_3 : []
+ Transaction_3 : Total Time - 2.09 seconds
+
+Transaction_7 : Started
+
+Transaction_7 : Hop_1 - Started
+ Node_1 at the start of Transaction_7 : []
+ Node_2 at the start of Transaction_7 : ['T7']
+ Node_3 at the start of Transaction_7 : ['T7']
+
+Transaction_7 : Hop_1 - Successful - Product info updated
+The previous quantity was 83 and the new quantity is 100
+The previous price was 1220 and the new price is 1500.0
+
+Transaction_7 : Hop_2 - Started
+
+Transaction_7 : Hop_2 - Successful - Inventory updated
+
+Transaction_7 : Ended
+ Node_1 at the end of Transaction_7 : []
+ Node_2 at the end of Transaction_7 : []
+ Node_3 at the end of Transaction_7 : []
+ Transaction_7 : Total Time -  3.03 seconds
+
+ Hop execution time by Transaction_1 : 0.0
+
+ Hop execution time by Transaction_2 : []
+
+ Hop execution time by Transaction_3 : [2.078734800001257, 0.010298000001057517]
+
+ Hop execution time by Transaction_4 : [1.0269542000023648, 0.003478899998299312]
+
+ Hop execution time by Transaction_5 : [0.20468519999849377]
+
+ Hop execution time by Transaction_6 : [1.141279300005408]
+
+ Hop execution time by Transaction_6 : [0.007997499997145496, 0.00873160000628559]
+
+Hops execution on Node 1 : {'Transaction_1': 0.10309409999899799, 'Transaction_5': 0.20468519999849377}
+
+Hops execution on Node 2 : {'Transaction_4': 0.003478899998299312, 'Transaction_6': 1.141279300005408, 'Transaction_3': 2.078734800001257, 'Transaction_7': 0.007997499997145496}
+
+Hops execution on Node 3 : {'Transaction_4': 1.0269542000023648, 'Transaction_3': 0.010298000001057517, 'Transaction_7': 0.00873160000628559}
+
+Transaction 1 - Average Latency: 0.10 seconds, Throughput: 9.70 transactions/second
+
+Transaction 2 - Average Latency: 0.00 seconds, Throughput: 0.00 transactions/second
+
+Transaction 3 - Average Latency: 1.04 seconds, Throughput: 0.96 transactions/second
+
+Transaction 4 - Average Latency: 0.52 seconds, Throughput: 1.94 transactions/second
+
+Transaction 5 - Average Latency: 0.20 seconds, Throughput: 4.89 transactions/second
+
+Transaction 6 - Average Latency: 1.14 seconds, Throughput: 0.88 transactions/second
+
+Transaction 7 - Average Latency: 0.01 seconds, Throughput: 119.55 transactions/second
